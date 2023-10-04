@@ -16,8 +16,13 @@ runtest() {
   echo "Running tests"
   package_dir=$1
   PYTHONPATH=src:test python3 -m nose2 --config misc/unittest.cfg --plugin nose2.plugins.junitxml --junit-xml
+  if [ $? -ne 0 ]; then
+    echo "Failed to run tests"
+    exit 127
+  fi
 }
 
 
 create_and_init_venv "$PROJECT_ROOT/test-env"
 runtest "$PROJECT_ROOT"
+exit 0

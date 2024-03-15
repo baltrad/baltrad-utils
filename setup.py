@@ -3,10 +3,11 @@ import setuptools
 
 import sys
 
-REQUIRED_PACKAGES= [
+REQUIRED_PACKAGES = [
 ]
 
-setuptools.setup(name="baltradutils",
+setuptools.setup(
+    name="baltradutils",
     version="0.1",
     namespace_packages=["baltradutils"],
     setup_requires=[],
@@ -20,7 +21,7 @@ setuptools.setup(name="baltradutils",
         "": ["*.sql", "*.cfg"]
     },
     install_requires=REQUIRED_PACKAGES,
-    entry_points = {
+    entry_points={
     },
     test_suite="nose.collector",
     tests_require=[

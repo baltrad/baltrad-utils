@@ -28,14 +28,13 @@ import os
 
 from baltradutils import jprops
 
-FIXTURE_DIR="%s/fixtures"%os.path.dirname(os.path.abspath(__file__))
+FIXTURE_DIR = "%s/fixtures" % os.path.dirname(os.path.abspath(__file__))
 
 class test_jprops(unittest.TestCase):
-    FIXTURE_FILE = "%s/jprops.properties"%FIXTURE_DIR
+    FIXTURE_FILE = "%s/jprops.properties" % FIXTURE_DIR
     
     def test_load_and_read(self):
         with open(self.FIXTURE_FILE) as fp:
             props = jprops.load_properties(fp)
             self.assertEqual("HEJ", props["one.property.name"])
             self.assertEqual("10", props["two.property.name"])
-

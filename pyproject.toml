@@ -1,0 +1,67 @@
+#[build-system]
+#requires = ["setuptools", "wheel"]
+#build-backend = "setuptools.build_meta"
+
+[project]
+name = "baltradutils"
+#version = "0.1"
+dynamic = ["version"]
+description = "Contains a mix of different utilities that are common between several modules in the BALTRAD project."
+readme = "README.rst"
+authors = [
+  { name = "Anders Henja", email = "anders.henja@smhi.se" },
+]
+license = { file = "LICENSE" }
+keywords = ["BALTRAD", "baltrad"]
+classifiers = [
+  "Development Status :: TODO - TODO",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+
+[project.urls]
+Homepage = "http://baltrad.eu/"
+Documentation = "http://baltrad.eu/documentation.html"
+Source = "https://github.com/baltrad/baltrad-utils"
+Tracker = "https://github.com/baltrad/baltrad-utils/issues"
+
+[project.optional-dependencies]
+test = [
+  "mock >= 0.7",
+]
+
+[tool.setuptools]
+packages = {include = ["baltradutils"], exclude = ["*.tests", "*.tests.*"]}
+package-dir = "src"
+namespace-packages = ["baltradutils"]
+#package-data = {"baltradutils": ["*.sql", "*.cfg"]} #MANIFEST.in
+
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = false
+line_length = 120
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+src_paths = ["src"]
+skip = ["src/baltradutils/jprops"]
+
+
+[tool.ruff]
+line-length = 120
+indent-width = 4
+target-version = ["py37", "py38", "py39"]
+exclude = ["src/baltradutils/jprops.py"]
+
+[tool.ruff.format]
+quote-style = "preserve"
+indent-style = "space"
+skip-magic-trailing-comma = false
+docstring-code-format = false
+docstring-code-line-length = "dynamic"
+

@@ -1,5 +1,10 @@
 #!/usr/bin/env python
-from setuptools import setup, find_namespace_packages
+from setuptools import setup, find_packages
+
+try:
+    from setuptools import find_namespace_packages
+except ImportError:
+    find_namespace_packages = find_packages
 
 setup(
     name="baltradutils",

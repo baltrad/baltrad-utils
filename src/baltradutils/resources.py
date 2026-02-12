@@ -15,3 +15,12 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with baltrad-utils.  If not, see <http://www.gnu.org/licenses/>.
 ###############################################################################
+
+from importlib.metadata import distribution
+from importlib.metadata import entry_points
+
+def load_entry_point(distname, group, name):
+    for entry_point in distribution(distname).entry_points:
+        if group == entry_point.group and name == entry_point.name:
+            return entry_point.load()
+    raise ImportError("Cant load entry point")

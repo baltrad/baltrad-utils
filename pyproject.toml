@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "baltradutils"
+version = "0.1"
+dependencies = []
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["baltradutils*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.sql", "*.cfg"]
+
+[project.optional-dependencies]
+test = [
+    "mock >= 0.7",
+    "pytest"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"] 

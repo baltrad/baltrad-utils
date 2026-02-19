@@ -24,3 +24,14 @@ def load_entry_point(distname, group, name):
         if group == entry_point.group and name == entry_point.name:
             return entry_point.load()
     raise ImportError("Cant load entry point")
+
+def get_entry_map(group):
+    entry_map = {}
+    entries = entry_points()
+    if isinstance(entries, dict):
+        matches = entries.get(group, [])
+    else:
+        matches = entries.select(group=group)
+    for m in matches:
+        entry_map[m.name] = m.load()
+    return entry_map

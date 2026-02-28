@@ -3,7 +3,6 @@ README
 
 Contains a mix of different utilities that are common between several modules.
 
-
 jprops
 =====================================
 Matt Good has developed a java properties file parser for Python that is used throughout the

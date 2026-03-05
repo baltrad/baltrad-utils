@@ -8,7 +8,7 @@ except ImportError:
 
 setup(
     name="baltradutils",
-    version="0.1",
+    version="0.9",
     packages=find_namespace_packages(where="src", include=["baltradutils*"]),
     package_dir={"": "src"},
     namespace_packages=["baltradutils"],

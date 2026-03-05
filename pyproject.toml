@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "baltradutils"
-version = "0.1"
+version = "0.9"
 dependencies = []
 
 [tool.setuptools]
